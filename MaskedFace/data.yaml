@@ -1,0 +1,4 @@
+train: MaskedFace/train
+val: MaskedFace/val
+nc: 4
+names: ['background', 'with_mask', 'without_mask', 'mask_weared_incorrect']
