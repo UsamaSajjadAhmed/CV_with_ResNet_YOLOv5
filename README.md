@@ -37,6 +37,10 @@ This repository contains solutions to the project for the **ECMM426 Computer Vis
   - `data/`: Image files for other operations.
   - `MaskedFace/`: YOLOv5-related data.
   - `Answers/`: Directory to save outputs.
+ 
+### Dataset
+The **EXCV10 dataset** used for training and testing the CNN can be downloaded from the following link:
+[Download EXCV10.zip](https://empslocal.ex.ac.uk/people/staff/ad735/ECMM426/EXCV10.zip)
 
 ---
 
@@ -62,7 +66,12 @@ The project includes seven tasks with clearly defined objectives, inputs, and ou
 2. Install Dependencies:
    ```bash
    pip install -r requirements.txt
-3. Run specific answers:
+3. ### **Download the EXCV10 dataset**
+
+1. [Download the dataset from here](https://empslocal.ex.ac.uk/people/staff/ad735/ECMM426/EXCV10.zip).
+2. Extract the dataset into the root directory of the repository.
+
+4. Run specific answers:
 - Replace answer_1.py with the relevant script for the task
    ```bash
    python answer_1.py
