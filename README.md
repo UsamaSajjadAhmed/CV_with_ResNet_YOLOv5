@@ -4,24 +4,21 @@
 - [Introduction](#introduction)
 - [Prerequisites](#prerequisites)
 - [Project Overview](#project-overview)
-  - [Answer 1: Gradient Magnitude and Direction](#answer-1-gradient-magnitude-and-direction)
-  - [Answer 2: Bag-of-Visual-Words Spatial Histograms](#answer-2-bag-of-visual-words-spatial-histograms)
-  - [Answer 3: Rotation Matrix Computation](#answer-3-rotation-matrix-computation)
-  - [Answer 4: CNN Model Training](#answer-4-cnn-model-training)
-  - [Answer 5: CNN Model Testing](#answer-5-cnn-model-testing)
-  - [Answer 6: Confusion Matrix](#answer-6-confusion-matrix)
-  - [Answer 7: YOLOv5 Workflow](#answer-7-yolov5-workflow)
 - [Usage Instructions](#usage-instructions)
 - [Project Structure](#project-structure)
 - [Results](#results)
-- [License](#license)
 - [Contact](#contact)
 
 ---
 
 ## **Introduction**
 
-This repository contains solutions to the coursework for the **ECMM426 Computer Vision** module. Each solution demonstrates the implementation of key computer vision techniques, including gradient computation, Bag-of-Visual-Words, CNN training and testing, and YOLOv5 integration for object detection and bounding box processing.
+This repository contains solutions to the project for the **ECMM426 Computer Vision** module. It demonstrates the implementation of key computer vision techniques, including:
+- Gradient computation
+- Bag-of-Visual-Words spatial histograms
+- Rotation matrix computation
+- CNN training and testing (ResNet)
+- YOLOv5 integration for object detection and bounding box processing.
 
 ---
 
@@ -35,61 +32,24 @@ This repository contains solutions to the coursework for the **ECMM426 Computer 
   - PyTorch (for CNN implementation)
   - scikit-learn
   - YOLOv5 repository
-- Files in the `EXCV10/` and `Answers/` folders
+- Required folders:
+  - `EXCV10/`: Training and testing dataset for CNN.
+  - `data/`: Image files for other operations.
+  - `MaskedFace/`: YOLOv5-related data.
+  - `Answers/`: Directory to save outputs.
 
 ---
 
 ## **Project Overview**
 
-### **Answer 1: Gradient Magnitude and Direction**
-- **Objective**: Compute gradient magnitude and direction of an input image.
-- **Key Functions**:
-  - `compute_gradient_magnitude()`
-  - `compute_gradient_direction()`
-- **Input**: `shapes.png`
-- **Output**: Gradient magnitude and direction saved as `.npy` files.
-
-### **Answer 2: Bag-of-Visual-Words Spatial Histograms**
-- **Objective**: Generate spatial histograms of Bag-of-Visual-Words for specified divisions.
-- **Key Functions**:
-  - `generate_bovw_spatial_histogram()`
-  - `plot_divisions_and_histograms()`
-- **Input**: `books.jpg`
-- **Output**: Histograms and visualizations saved as `.npy` and `.png` files.
-
-### **Answer 3: Rotation Matrix Computation**
-- **Objective**: Compute a rotation matrix for a given set of points and angle.
-- **Key Function**: `compute_rotation_matrix()`
-- **Input**: Points loaded from `data/points.npy` and a rotation angle.
-- **Output**: Rotation matrix saved as `.npy`.
-
-### **Answer 4: CNN Model Training**
-- **Objective**: Train a ResNet model on the training dataset.
-- **Key Function**: `train_cnn()`
-- **Input**: Data from `EXCV10/`.
-- **Output**: Best-performing model weights saved as `.pth`.
-
-### **Answer 5: CNN Model Testing**
-- **Objective**: Evaluate the trained CNN model.
-- **Key Function**: `test_cnn()`
-- **Input**: Testing data from `EXCV10/`.
-- **Output**: Model accuracy and predicted labels saved as `.npy`.
-
-### **Answer 6: Confusion Matrix**
-- **Objective**: Compute and visualize the confusion matrix for model predictions.
-- **Key Function**: `compute_confusion_matrix()`
-- **Input**: True and predicted labels.
-- **Output**: Confusion matrix and heatmap saved as `.npy` and `.png`.
-
-### **Answer 7: YOLOv5 Workflow**
-- **Objective**: Process bounding box data for object detection.
-- **Key Functions**:
-  - `to_yolo()`
-  - `to_xml()`
-  - `convert_to_yolo_labels()`
-  - `count_masks()`
-- **Input**: Data from the `MaskedFace/` folder.
-- **Output**: MAPE score and bounding box data saved as `.npy`.
+The project includes seven tasks with clearly defined objectives, inputs, and outputs:
+1. **Gradient Magnitude and Direction**: Compute gradient magnitude and direction for an input image using custom filters.
+2. **Bag-of-Visual-Words Spatial Histograms**: Generate spatial histograms of Bag-of-Visual-Words for divided image regions.
+3. **Rotation Matrix Computation**: Compute a rotation matrix for a given set of points and a rotation angle.
+4. **CNN Model Training**: Train a ResNet-based CNN on the provided dataset.
+5. **CNN Model Testing**: Evaluate the CNN model, computing accuracy and predictions.
+6. **Confusion Matrix**: Compute and visualize the confusion matrix for the CNN's predictions.
+7. **YOLOv5 Workflow**: Process bounding box data for object detection, including MAPE score calculation.
 
 ---
 
@@ -98,3 +58,71 @@ This repository contains solutions to the coursework for the **ECMM426 Computer 
 1. Clone the repository:
    ```bash
    git clone https://github.com/YourGitHubUsername/ECMM426-Computer-Vision-Coursework.git
+   
+2. Install Dependencies:
+   ```bash
+   pip install -r requirements.txt
+3. Run specific answers:
+- Replace answer_1.py with the relevant script for the task
+   ```bash
+   python answer_1.py
+
+4. Outputs will be saved in the Answers/ folder.
+
+## **Project Structure**
+
+- **EXCV10/**: Training and testing dataset for CNN (ResNet).
+- **data/**: Image files for rotation matrix and gradient computation.
+- **MaskedFace/**: YOLOv5-related data for object detection tasks.
+- **Answers/**: Directory for saving outputs (e.g., `.npy`, `.png`, `.pth` files).
+- **scripts/**: Python scripts for each solution.
+
+---
+
+## **Results**
+
+### Task Outputs:
+
+1. **Gradient Magnitude and Direction**: 
+   - Computed gradient magnitude and direction stored as `.npy` files.
+
+2. **Bag-of-Visual-Words Spatial Histograms**: 
+   - Spatial histograms and visualizations saved as `.npy` and `.png` files.
+
+3. **Rotation Matrix Computation**: 
+   - Rotation matrix saved as a `.npy` file.
+
+4. **CNN Model Training**:
+   - A **custom, minimal ResNet** architecture was used as specified in the project constraints:
+     - `ResNet(block=BasicBlock, layers=[1, 1, 1], num_classes=num_classes)`
+     - **BasicBlock**: Simplified residual block with fewer layers.
+     - **layers=[1, 1, 1]**: Indicates three stages, each with a single residual block, making this model significantly smaller than standard ResNet variants (e.g., ResNet-18).
+   - The performance improvement was achieved through **hyperparameter tuning**, including adjustments to:
+     - Number of epochs
+     - Learning rate
+     - Optimizer type
+     - Learning rate scheduler
+     - Data augmentation and regularization techniques
+   - **No additional layers or depth** were added to the ResNet architecture, as per the project constraints.
+   - The best-performing model weights were saved as `data/weights_resnet.pth`.
+   - The trained model achieved an accuracy of **72.35%** on the validation set.
+
+5. **CNN Model Testing**: 
+   - Predicted labels and accuracy metrics were saved as `.npy` files.
+
+6. **Confusion Matrix**:
+   - Confusion matrix and heatmap saved as `.npy` and `.png` files.
+
+7. **YOLOv5 Workflow**:
+   - **Objective**:
+     - Implement a 3-class (4-class including background) masked face detector to identify:
+       - Faces wearing masks correctly (`with_mask`)
+       - Faces not wearing masks (`without_mask`)
+       - Faces wearing masks incorrectly (`mask_weared_incorrect`)
+   - **Functionality**:
+     - The YOLOv5 model processes images from the `MaskedFaceTestDataset`, detecting and classifying faces into the specified categories.
+     - The function `count_masks(dataset)` counts the number of faces in each class for every image in the dataset.
+     - Outputs a 2D numpy array of shape \(N \times 3\), where \(N\) is the number of images, with counts of faces in the three categories for each image.
+   - **Performance**:
+     - The YOLOv5 model achieved a MAPE score of **13.36%**.
+     - Results, including bounding box data and MAPE scores, were saved as `.npy` files in the `Answers/` folder.
