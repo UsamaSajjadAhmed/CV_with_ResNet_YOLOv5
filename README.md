@@ -68,8 +68,8 @@ The project includes seven tasks with clearly defined objectives, inputs, and ou
    pip install -r requirements.txt
 3. ### **Download the EXCV10 dataset**
 
-1. [Download the dataset from here](https://empslocal.ex.ac.uk/people/staff/ad735/ECMM426/EXCV10.zip).
-2. Extract the dataset into the root directory of the repository.
+- [Download the dataset from here](https://empslocal.ex.ac.uk/people/staff/ad735/ECMM426/EXCV10.zip).
+- Extract the dataset into the root directory of the repository.
 
 4. Run specific answers:
 - Replace answer_1.py with the relevant script for the task
